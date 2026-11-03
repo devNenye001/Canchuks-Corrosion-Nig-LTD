@@ -1,0 +1,242 @@
+/* ==========================================================================
+   KNOWLEDGE PAGE STYLES (src/pages/Knowledge.css)
+   - Publications, Articles, Conferences, Book Chapter
+   - Dr. Chukwuma Onuoha Profile (chuks-pic.jpe)
+   - Zero shadows
+   - Interactive Framer Motion hover & reading experience
+   ========================================================================== */
+
+.knowledge-page-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 24px 80px;
+}
+
+.knowledge-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Page Heading */
+.knowledge-main-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.knowledge-main-title {
+  font-family: var(--font-family);
+  font-size: 46px;
+  font-weight: 400 !important; /* Headings 400 */
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.knowledge-main-subtitle {
+  font-size: 16.5px;
+  font-weight: 400;
+  color: #64748b;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Category Filter Tabs (Pill controls) */
+.knowledge-tabs-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.knowledge-tab-btn {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.knowledge-tab-btn:hover {
+  background-color: #e2e8f0;
+  color: var(--color-orange);
+}
+
+.knowledge-tab-btn.is-active {
+  background-color: var(--color-orange);
+  color: #ffffff;
+}
+
+/* Sections for Publications */
+.knowledge-sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin-bottom: 80px;
+}
+
+.knowledge-category-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.knowledge-category-title {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 500 !important;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--color-orange);
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.knowledge-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.knowledge-item-card {
+  background: #ffffff;
+  border-left: 3px solid #e2e8f0;
+  padding: 12px 18px 12px 20px;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.knowledge-item-card:hover {
+  border-left-color: var(--color-orange);
+  background-color: #fafaf9;
+}
+
+.knowledge-item-text {
+  font-family: var(--font-family);
+  font-size: 15px;
+  font-weight: 400; /* Regular weight */
+  line-height: 1.65;
+  color: #334155;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   PROFILE SECTION (Dr. Chukwuma Onuoha & chuks-pic.jpe)
+   -------------------------------------------------------------------------- */
+.knowledge-profile-section {
+  padding-top: 60px;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.knowledge-profile-header {
+  margin-bottom: 32px;
+}
+
+.knowledge-profile-name {
+  font-family: var(--font-family);
+  font-size: 32px;
+  font-weight: 400 !important; /* Headings 400 */
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+}
+
+.knowledge-profile-role {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400;
+  color: #475569;
+}
+
+/* Image frame */
+.knowledge-profile-media {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.knowledge-profile-img {
+  width: 440px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Biography text */
+.knowledge-profile-bio {
+  font-family: var(--font-family);
+  font-size: 15.5px;
+  font-weight: 400; /* Regular body font weight */
+  line-height: 1.75;
+  color: #475569;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 24px;
+}
+
+.knowledge-profile-contact-link {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-blue);
+  transition: color var(--transition-fast);
+}
+
+.knowledge-profile-contact-link:hover {
+  color: var(--color-blue-hover);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .knowledge-main-title {
+    font-size: 34px;
+  }
+
+  .knowledge-profile-name {
+    font-size: 26px;
+  }
+
+  .knowledge-profile-role {
+    font-size: 16px;
+  }
+
+  .knowledge-profile-bio {
+    text-align: left;
+    font-size: 14.5px;
+  }
+}
+
+@media (max-width: 640px) {
+  .knowledge-page-wrapper {
+    padding: 40px 16px 60px;
+  }
+
+  .knowledge-main-title {
+    font-size: 28px;
+  }
+
+  .knowledge-profile-img {
+    width: 100%;
+  }
+
+  .knowledge-item-text {
+    font-size: 14px;
+  }
+}

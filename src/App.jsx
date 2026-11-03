@@ -3,14 +3,16 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Services from './pages/Services'
-import NotFound from './pages/NotFound'
+import Knowledge from './pages/Knowledge'
 import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
 import './App.css'
 
 function App() {
   const getInitialPage = () => {
     const hash = window.location.hash.replace('#', '')
     if (hash === 'services') return 'services'
+    if (hash === 'knowledge') return 'knowledge'
     if (hash === 'contact') return 'contact'
     if (hash === '404') return '404'
     return 'home'
@@ -22,6 +24,7 @@ function App() {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '')
       if (hash === 'services') setCurrentPage('services')
+      else if (hash === 'knowledge') setCurrentPage('knowledge')
       else if (hash === 'contact') setCurrentPage('contact')
       else if (hash === '404') setCurrentPage('404')
       else setCurrentPage('home')
@@ -34,6 +37,10 @@ function App() {
     if (page === 'services') {
       window.location.hash = 'services'
       setCurrentPage('services')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else if (page === 'knowledge') {
+      window.location.hash = 'knowledge'
+      setCurrentPage('knowledge')
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else if (page === 'contact') {
       window.location.hash = 'contact'
@@ -50,10 +57,11 @@ function App() {
     }
   }
 
-  // Cycle views for testing: home -> services -> contact -> 404 -> home
+  // Cycle views for testing: home -> services -> knowledge -> contact -> 404 -> home
   const cycleView = () => {
     if (currentPage === 'home') handleNavigate('services')
-    else if (currentPage === 'services') handleNavigate('contact')
+    else if (currentPage === 'services') handleNavigate('knowledge')
+    else if (currentPage === 'knowledge') handleNavigate('contact')
     else if (currentPage === 'contact') handleNavigate('404')
     else handleNavigate('home')
   }
@@ -67,6 +75,7 @@ function App() {
       <main className="main-content">
         {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
         {currentPage === 'services' && <Services onNavigate={handleNavigate} />}
+        {currentPage === 'knowledge' && <Knowledge onNavigate={handleNavigate} />}
         {currentPage === 'contact' && <Contact onNavigate={handleNavigate} />}
         {currentPage === '404' && <NotFound onNavigate={handleNavigate} />}
       </main>
@@ -78,7 +87,7 @@ function App() {
       <aside
         className="view-switch-pill"
         onClick={cycleView}
-        title="Click to cycle page view (Home / Services / Contact Us / 404)"
+        title="Click to cycle page view (Home / Services / Knowledge / Contact Us / 404)"
       >
         <span className="view-indicator-dot" />
         <span>
@@ -87,6 +96,8 @@ function App() {
             ? 'Home'
             : currentPage === 'services'
             ? 'Services'
+            : currentPage === 'knowledge'
+            ? 'Knowledge'
             : currentPage === 'contact'
             ? 'Contact Us'
             : '404 Page'}{' '}
