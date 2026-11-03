@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 import FinalCTA from '../components/FinalCTA'
 import './NotFound.css'
 
@@ -12,21 +13,31 @@ export default function NotFound({ onNavigate }) {
   }
 
   return (
-    <div className="not-found-page-wrapper animate-fade-in">
+    <div className="not-found-page-wrapper">
       <section className="not-found-section" aria-labelledby="not-found-heading">
         <div className="not-found-container">
           {/* Left Side: Static Traffic Cone (no shadows, no floating) */}
-          <div className="not-found-media-wrapper animate-fade-in-up">
+          <motion.div
+            className="not-found-media-wrapper"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
             <img
               src="/not-found-cone.jpg"
               alt="Orange traffic cone indicating page not found"
               className="not-found-cone-img"
               loading="eager"
             />
-          </div>
+          </motion.div>
 
           {/* Right Side: Copy & CTA */}
-          <div className="not-found-content animate-fade-in-up delay-100">
+          <motion.div
+            className="not-found-content"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
             <h1 id="not-found-heading" className="not-found-title">
               Page not Found
             </h1>
@@ -46,7 +57,7 @@ export default function NotFound({ onNavigate }) {
                 <ArrowRight className="btn-icon-arrow" size={18} />
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -55,4 +66,3 @@ export default function NotFound({ onNavigate }) {
     </div>
   )
 }
-

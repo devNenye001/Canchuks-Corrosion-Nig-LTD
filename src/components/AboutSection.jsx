@@ -1,22 +1,43 @@
 import { ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function AboutSection({ onViewServices }) {
   return (
     <section id="about-section" className="home-about-section">
       <div className="home-about-container">
         {/* Kicker Tag */}
-        <div className="section-kicker">About Us</div>
+        <motion.div
+          className="section-kicker"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          About Us
+        </motion.div>
 
         <div className="home-about-grid">
           {/* Left Column: Heading */}
-          <div className="home-about-left animate-fade-in-up">
+          <motion.div
+            className="home-about-left"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             <h2 className="home-about-title">
               Expertise in Corrosion &amp; Pipeline Integrity
             </h2>
-          </div>
+          </motion.div>
 
           {/* Right Column: Paragraph & CTA */}
-          <div className="home-about-right animate-fade-in-up delay-100">
+          <motion.div
+            className="home-about-right"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <p className="home-about-text">
               Canchuks Corrosion Nigeria Limited provides specialized corrosion and
               materials engineering solutions for the oil and gas industry. As a
@@ -35,10 +56,9 @@ export default function AboutSection({ onViewServices }) {
                 <ArrowRight className="btn-icon-arrow" size={18} />
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   )
 }
-

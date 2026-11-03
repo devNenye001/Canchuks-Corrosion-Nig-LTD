@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 import './FinalCTA.css'
 
 export default function FinalCTA({ onContactClick }) {
@@ -11,9 +12,15 @@ export default function FinalCTA({ onContactClick }) {
       <div className="final-cta-bg-layer" />
       <div className="final-cta-overlay" />
 
-      {/* Content Container */}
+      {/* Content Container with Framer Motion */}
       <div className="final-cta-container">
-        <div className="final-cta-content animate-fade-in-up">
+        <motion.div
+          className="final-cta-content"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        >
           <h2 id="cta-heading" className="final-cta-title">
             Need a Pipeline Integrity Solution?
           </h2>
@@ -34,7 +41,7 @@ export default function FinalCTA({ onContactClick }) {
               <ArrowRight className="btn-icon-arrow" size={18} />
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom Accent Blue Border (#59AEDB) */}
@@ -42,4 +49,3 @@ export default function FinalCTA({ onContactClick }) {
     </section>
   )
 }
-

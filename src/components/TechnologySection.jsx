@@ -1,17 +1,39 @@
+import { motion } from 'framer-motion'
+
 export default function TechnologySection() {
   return (
     <section className="home-tech-section" aria-label="Technology Demonstration">
       <div className="home-tech-container">
         {/* Kicker Tag */}
-        <div className="section-kicker text-center">Technology</div>
+        <motion.div
+          className="section-kicker text-center"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Technology
+        </motion.div>
 
         {/* Heading 400 Font Weight */}
-        <h2 className="home-tech-title text-center animate-fade-in-up">
+        <motion.h2
+          className="home-tech-title text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           Contactless Magnetic Inspection Technology (CMIT)
-        </h2>
+        </motion.h2>
 
-        {/* Responsive YouTube Embed Container */}
-        <div className="home-tech-video-wrapper animate-fade-in-up delay-100">
+        {/* Responsive YouTube Embed Container with Framer Motion */}
+        <motion.div
+          className="home-tech-video-wrapper"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.65, delay: 0.1 }}
+        >
           <div className="video-responsive-frame">
             <iframe
               src="https://www.youtube.com/embed/vTx-b5bHY0s?si=JlneWONdSpJOkCWC"
@@ -23,9 +45,8 @@ export default function TechnologySection() {
               className="video-iframe"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-

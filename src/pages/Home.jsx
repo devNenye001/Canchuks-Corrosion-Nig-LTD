@@ -13,10 +13,7 @@ export default function Home({ onNavigate }) {
   }
 
   const handleViewServices = () => {
-    const el = document.getElementById('services-section')
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
+    onNavigate('services')
   }
 
   return (

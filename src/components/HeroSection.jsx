@@ -1,27 +1,48 @@
 import { ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function HeroSection({ onContactClick, onViewServices }) {
   return (
     <section className="home-hero-section" aria-label="Hero Section">
-      {/* Background Image Layer with Parallax / Zoom Effect */}
+      {/* Background Image Layer */}
       <div className="home-hero-bg-layer" />
       <div className="home-hero-overlay" />
 
-      {/* Content Container */}
+      {/* Content Container with Framer Motion */}
       <div className="home-hero-container">
-        <div className="home-hero-content animate-fade-in-up">
-          <h1 className="home-hero-title">
+        <motion.div
+          className="home-hero-content"
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <motion.h1
+            className="home-hero-title"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
             Advanced Corrosion Engineering,
             <br />
             Reliable Pipeline Integrity.
-          </h1>
+          </motion.h1>
 
-          <p className="home-hero-description">
+          <motion.p
+            className="home-hero-description"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             From advanced corrosion assessment to pipeline inspection, we deliver
             tailor-fit engineering solutions for Nigeria&apos;s oil and gas industry.
-          </p>
+          </motion.p>
 
-          <div className="home-hero-actions">
+          <motion.div
+            className="home-hero-actions"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
             <button
               type="button"
               className="btn-white-pill hero-action-btn"
@@ -38,10 +59,9 @@ export default function HeroSection({ onContactClick, onViewServices }) {
             >
               <span>Contact Us</span>
             </button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
 }
-

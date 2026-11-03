@@ -1,4 +1,5 @@
 import { Home, Phone, Mail } from 'lucide-react'
+import { motion } from 'framer-motion'
 import FinalCTA from '../components/FinalCTA'
 import './Contact.css'
 
@@ -11,13 +12,18 @@ export default function Contact({ onNavigate }) {
   }
 
   return (
-    <div className="contact-page-wrapper animate-fade-in">
+    <div className="contact-page-wrapper">
       {/* 1. Hero Banner with service4.jpg and concave upward bottom curve */}
       <section className="contact-hero-banner" aria-label="Contact Us Banner">
         <div className="contact-hero-bg" />
         <div className="contact-hero-overlay" />
 
-        <div className="contact-hero-container animate-fade-in-up">
+        <motion.div
+          className="contact-hero-container"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
           <h1 className="contact-hero-title">
             Let&apos;s Talk About What You&apos;re Building.
           </h1>
@@ -25,7 +31,7 @@ export default function Contact({ onNavigate }) {
             We are committed to turning ideas into durable structures, functional spaces,
             and lasting value.
           </p>
-        </div>
+        </motion.div>
 
         {/* Concave upward bottom curve */}
         <div className="contact-hero-curve" aria-hidden="true">
@@ -42,16 +48,28 @@ export default function Contact({ onNavigate }) {
       <section className="contact-info-section">
         <div className="contact-info-container">
           {/* Column 1: Visit Our Office */}
-          <div className="contact-info-col animate-fade-in-up">
+          <motion.div
+            className="contact-info-col"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+          >
             <Home size={26} className="contact-col-icon" />
             <h2 className="contact-col-title">Visit Our Office</h2>
             <p className="contact-col-text">
               Address: 31, Wetheral Road, Owerri, Imo State, Nigeria.
             </p>
-          </div>
+          </motion.div>
 
           {/* Column 2: Call Us */}
-          <div className="contact-info-col animate-fade-in-up delay-100">
+          <motion.div
+            className="contact-info-col"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+          >
             <Phone size={26} className="contact-col-icon" />
             <h2 className="contact-col-title">Call Us</h2>
             <p className="contact-col-text">
@@ -59,10 +77,16 @@ export default function Contact({ onNavigate }) {
                 +2349128209328
               </a>
             </p>
-          </div>
+          </motion.div>
 
           {/* Column 3: Email */}
-          <div className="contact-info-col animate-fade-in-up delay-200">
+          <motion.div
+            className="contact-info-col"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.2 }}
+          >
             <Mail size={26} className="contact-col-icon" />
             <h2 className="contact-col-title">
               <a href="mailto:canchukscorrosioninc@gmail.com">
@@ -73,13 +97,19 @@ export default function Contact({ onNavigate }) {
               Send us your inquiries anytime, and our team will respond promptly with
               the information you need.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 3. Embedded Google Map */}
       <section className="contact-map-section" aria-label="Office Location Map">
-        <div className="contact-map-container animate-fade-in-up delay-100">
+        <motion.div
+          className="contact-map-container"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.65 }}
+        >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.5169608622377!2d7.0374908000000005!3d5.4899564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104259bac1752445%3A0x68bc69533e6d1dc2!2s31%20Wetheral%20Rd%2C%20Angelina%20House%2C%20Owerri%20460281%2C%20Imo!5e0!3m2!1sen!2sng!4v1793733667196!5m2!1sen!2sng"
             width="100%"
@@ -91,7 +121,7 @@ export default function Contact({ onNavigate }) {
             title="Canchuks Corrosion Nigeria Limited Location Map"
             className="contact-map-frame"
           />
-        </div>
+        </motion.div>
       </section>
 
       {/* 4. Final CTA Banner */}
