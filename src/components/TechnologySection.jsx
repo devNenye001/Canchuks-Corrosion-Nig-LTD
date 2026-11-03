@@ -5,16 +5,18 @@ export default function TechnologySection() {
     <section className="home-tech-section" aria-label="Technology Demonstration">
       <div className="home-tech-container">
         {/* Kicker Tag */}
-        <motion.div
-          className="section-kicker text-center"
-          style={{ display: 'block', width: '100%', textAlign: 'center' }}
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          Technology
-        </motion.div>
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <motion.div
+            className="section-kicker text-center"
+            style={{ display: 'block', textAlign: 'center', margin: '0 auto' }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Technology
+          </motion.div>
+        </div>
 
         {/* Heading 400 Font Weight */}
         <motion.h2

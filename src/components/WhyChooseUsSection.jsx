@@ -27,16 +27,18 @@ export default function WhyChooseUsSection() {
     <section className="home-why-section">
       <div className="home-why-container">
         {/* Kicker */}
-        <motion.div
-          className="section-kicker text-center"
-          style={{ display: 'block', width: '100%', textAlign: 'center' }}
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          Why Choose Us
-        </motion.div>
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <motion.div
+            className="section-kicker text-center"
+            style={{ display: 'block', textAlign: 'center', margin: '0 auto' }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Why Choose Us
+          </motion.div>
+        </div>
 
         {/* Heading */}
         <motion.h2

@@ -291,6 +291,7 @@
   letter-spacing: -0.015em;
   margin-top: 8px;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .home-tech-video-wrapper {
@@ -345,6 +346,7 @@
   letter-spacing: -0.015em;
   margin-top: 8px;
   margin-bottom: 48px;
+  text-align: center;
 }
 
 .home-why-grid {
