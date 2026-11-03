@@ -95,8 +95,8 @@
 }
 
 .final-cta-btn {
-  padding: 13px 32px;
-  font-size: 15px;
+  padding: 16px 38px;
+  font-size: 15.5px;
 }
 
 @media (max-width: 640px) {
@@ -118,3 +118,4 @@
     margin-bottom: 28px;
   }
 }
+

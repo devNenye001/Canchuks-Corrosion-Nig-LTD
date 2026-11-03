@@ -99,8 +99,8 @@
 }
 
 .hero-action-btn {
-  padding: 13px 32px;
-  font-size: 15px;
+  padding: 16px 38px;
+  font-size: 15.5px;
 }
 
 /* --------------------------------------------------------------------------
@@ -436,8 +436,8 @@
 }
 
 .partner-contact-btn {
-  padding: 13px 36px;
-  font-size: 15px;
+  padding: 16px 40px;
+  font-size: 15.5px;
 }
 
 /* --------------------------------------------------------------------------
@@ -513,3 +513,4 @@
     width: 210px;
   }
 }
+

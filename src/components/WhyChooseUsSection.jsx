@@ -1,23 +1,23 @@
-import { Shield, Cpu, Layers } from 'lucide-react'
+import { Award, UserCheck, Users } from 'lucide-react'
 
 export default function WhyChooseUsSection() {
   const features = [
     {
       id: 1,
       title: 'Specialized Engineering Expertise',
-      icon: Shield,
+      icon: Award,
       text: 'Our focus on corrosion and materials engineering enables us to address complex pipeline integrity and asset reliability challenges.',
     },
     {
       id: 2,
       title: 'Technology–Driven Assessments',
-      icon: Cpu,
+      icon: UserCheck,
       text: 'We apply advanced inspection technologies and structured assessment methodologies to help identify potential pipeline threats.',
     },
     {
       id: 3,
       title: 'Comprehensive Service Capabilities',
-      icon: Layers,
+      icon: Users,
       text: 'From corrosion assessment to risk evaluation and materials engineering, we offer services that address multiple aspects of pipeline integrity.',
     },
   ]
