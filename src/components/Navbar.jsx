@@ -47,7 +47,8 @@ export default function Navbar({ currentPage, onNavigate }) {
     { name: 'Knowledge', id: 'knowledge' },
   ]
 
-  const isHomeHero = currentPage === 'home' && !scrolled
+  const isTransparentHero =
+    (currentPage === 'home' || currentPage === 'contact') && !scrolled
 
   const handleLinkClick = (id) => {
     setMobileMenuOpen(false)
@@ -78,7 +79,7 @@ export default function Navbar({ currentPage, onNavigate }) {
   return (
     <header
       className={`navbar-header ${scrolled ? 'is-scrolled' : ''} ${
-        isHomeHero ? 'is-transparent-hero' : 'is-solid-light'
+        isTransparentHero ? 'is-transparent-hero' : 'is-solid-light'
       }`}
     >
       <div className="navbar-container">
@@ -92,7 +93,7 @@ export default function Navbar({ currentPage, onNavigate }) {
           aria-label="Canchuks Corrosion Home"
         >
           <img
-            src={isHomeHero ? '/logo-white.png' : '/logo-black.png'}
+            src={isTransparentHero ? '/logo-white.png' : '/logo-black.png'}
             alt="Canchuks Corrosion Inc. Logo"
             className="navbar-logo-img"
           />
@@ -110,7 +111,7 @@ export default function Navbar({ currentPage, onNavigate }) {
                   <button
                     type="button"
                     className={`navbar-nav-link ${isActive ? 'is-active' : ''} ${
-                      isHomeHero ? 'nav-link-light' : 'nav-link-dark'
+                      isTransparentHero ? 'nav-link-light' : 'nav-link-dark'
                     }`}
                     onClick={() => handleLinkClick(item.id)}
                   >
@@ -137,7 +138,7 @@ export default function Navbar({ currentPage, onNavigate }) {
         {/* Mobile Burger Menu Button */}
         <button
           type="button"
-          className={`navbar-burger-btn ${isHomeHero ? 'burger-light' : 'burger-dark'}`}
+          className={`navbar-burger-btn ${isTransparentHero ? 'burger-light' : 'burger-dark'}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={
             mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'
