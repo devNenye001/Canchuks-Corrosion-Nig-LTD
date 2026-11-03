@@ -1,0 +1,515 @@
+/* ==========================================================================
+   HOME PAGE STYLES (src/pages/Home.css)
+   - Zero shadows
+   - Sharp corners on service cards (no unwanted rounded borders)
+   - Clean columns for Why Choose Us (no card boxes)
+   - Clean monitor frame for Technology video
+   ========================================================================== */
+
+/* Section kicker - clean plain text in #FF5500 */
+.section-kicker {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--color-orange); /* #FF5500 */
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO SECTION (/hero.jpg)
+   -------------------------------------------------------------------------- */
+.home-hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 130px 24px 90px;
+}
+
+.home-hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-image: url('/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(10, 20, 35, 0.48) 0%,
+    rgba(10, 20, 35, 0.68) 100%
+  );
+  z-index: 2;
+}
+
+.home-hero-container {
+  position: relative;
+  z-index: 3;
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-hero-title {
+  font-family: var(--font-family);
+  font-size: 52px;
+  font-weight: 400 !important; /* Headings 400 */
+  line-height: 1.18;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+
+.home-hero-description {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400; /* Regular body font weight */
+  line-height: 1.6;
+  color: #f1f5f9;
+  max-width: 700px;
+  margin: 0 auto 36px;
+}
+
+.home-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-action-btn {
+  padding: 13px 32px;
+  font-size: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   2. ABOUT US SECTION
+   -------------------------------------------------------------------------- */
+.home-about-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 100px 24px;
+}
+
+.home-about-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.home-about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+.home-about-title {
+  font-family: var(--font-family);
+  font-size: 38px;
+  font-weight: 400 !important; /* Headings 400 */
+  line-height: 1.25;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  max-width: 480px;
+}
+
+.home-about-text {
+  font-family: var(--font-family);
+  font-size: 16.5px;
+  font-weight: 400; /* Regular weight */
+  line-height: 1.65;
+  color: #475569;
+  margin-bottom: 30px;
+}
+
+.home-about-action {
+  display: flex;
+}
+
+/* --------------------------------------------------------------------------
+   3. SERVICES SECTION (service1 to 4)
+   - Sharp corners (border-radius: 0) matching the design
+   - No shadows
+   -------------------------------------------------------------------------- */
+.home-services-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 72px 24px 96px;
+}
+
+.home-services-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.home-services-header-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 44px;
+  margin-top: 8px;
+}
+
+.home-services-title {
+  font-family: var(--font-family);
+  font-size: 36px;
+  font-weight: 400 !important; /* Headings 400 */
+  line-height: 1.25;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+}
+
+.home-services-intro {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400; /* Regular weight */
+  line-height: 1.6;
+  color: #475569;
+}
+
+.home-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Sharp rectangular service item matching screenshot */
+.service-card {
+  position: relative;
+  border-radius: 0; /* Strictly sharp corners matching design */
+  overflow: hidden;
+  cursor: pointer;
+  background: #0f172a;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 3 / 4;
+  transition: opacity var(--transition-fast);
+}
+
+.service-card:hover {
+  opacity: 0.95;
+}
+
+.service-card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+.service-card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0) 0%,
+    rgba(15, 23, 42, 0.25) 45%,
+    rgba(15, 23, 42, 0.88) 100%
+  );
+}
+
+.service-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 16px;
+  z-index: 2;
+}
+
+.service-card-title {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400 !important; /* Headings 400 */
+  line-height: 1.35;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   4. TECHNOLOGY SECTION (YouTube Embed)
+   - Clean monitor/tablet bezel with zero shadows
+   -------------------------------------------------------------------------- */
+.home-tech-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 72px 24px 96px;
+}
+
+.home-tech-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.home-tech-title {
+  font-family: var(--font-family);
+  font-size: 38px;
+  font-weight: 400 !important; /* Headings 400 */
+  line-height: 1.25;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  margin-top: 8px;
+  margin-bottom: 40px;
+}
+
+.home-tech-video-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #1e293b; /* Sleek bezel */
+  background-color: #000000;
+}
+
+.video-responsive-frame {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. WHY CHOOSE CANCHUKS CORROSION?
+   - Clean flat text columns without card boxes (matching design)
+   - Zero shadows
+   -------------------------------------------------------------------------- */
+.home-why-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 72px 24px 96px;
+}
+
+.home-why-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.home-why-title {
+  font-family: var(--font-family);
+  font-size: 38px;
+  font-weight: 400 !important; /* Headings 400 */
+  line-height: 1.25;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  margin-top: 8px;
+  margin-bottom: 48px;
+}
+
+.home-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+/* Plain clean column - NO card border, NO card background */
+.why-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.why-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: var(--color-orange); /* #FF5500 */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.why-icon {
+  color: #ffffff;
+}
+
+.why-col-title {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 400 !important; /* Headings 400 */
+  color: #0f172a;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.why-col-text {
+  font-size: 15.5px;
+  font-weight: 400; /* Regular body weight */
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* --------------------------------------------------------------------------
+   6. PARTNER WITH US SECTION (/partner-img.png)
+   - Clean, static image, zero shadows
+   -------------------------------------------------------------------------- */
+.home-partner-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 72px 24px 96px;
+}
+
+.home-partner-container {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-partner-title {
+  font-family: var(--font-family);
+  font-size: 38px;
+  font-weight: 400 !important; /* Headings 400 */
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+.home-partner-desc {
+  font-size: 16.5px;
+  font-weight: 400; /* Regular weight */
+  color: #475569;
+  max-width: 620px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+.home-partner-media-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.partner-illustration-img {
+  width: 270px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.home-partner-action {
+  display: flex;
+  justify-content: center;
+}
+
+.partner-contact-btn {
+  padding: 13px 36px;
+  font-size: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .home-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .home-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero-title {
+    font-size: 36px;
+  }
+  .home-hero-description {
+    font-size: 16px;
+  }
+  .home-about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .home-services-header-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .home-why-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-hero-section {
+    padding: 110px 20px 60px;
+    min-height: 85vh;
+  }
+  .home-hero-title {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+  .home-hero-description {
+    font-size: 15px;
+  }
+  .home-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .hero-action-btn {
+    width: 100%;
+  }
+  .home-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-card {
+    aspect-ratio: 4 / 3;
+  }
+  .home-about-title,
+  .home-services-title,
+  .home-tech-title,
+  .home-why-title,
+  .home-partner-title {
+    font-size: 28px;
+  }
+  .partner-illustration-img {
+    width: 210px;
+  }
+}

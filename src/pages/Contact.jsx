@@ -11,8 +11,9 @@ import {
   Building2,
   ExternalLink
 } from 'lucide-react'
+import './Contact.css'
 
-export default function ContactPage({ onBackTo404 }) {
+export default function Contact({ onNavigate }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,7 +37,7 @@ export default function ContactPage({ onBackTo404 }) {
     setTimeout(() => {
       setIsSubmitting(false)
       setSubmitted(true)
-    }, 800)
+    }, 700)
   }
 
   const servicesList = [
@@ -56,10 +57,10 @@ export default function ContactPage({ onBackTo404 }) {
           <button
             type="button"
             className="contact-back-link"
-            onClick={onBackTo404}
+            onClick={() => onNavigate('home')}
           >
             <ArrowLeft size={16} />
-            <span>Back to 404 Page</span>
+            <span>Back to Home</span>
           </button>
           <div className="contact-breadcrumb">
             <span>Home</span>
@@ -74,7 +75,7 @@ export default function ContactPage({ onBackTo404 }) {
         <div className="contact-hero-container">
           <div className="contact-badge-pill">
             <ShieldCheck size={16} />
-            <span>Trusted Pipeline & Corrosion Specialists</span>
+            <span>Trusted Pipeline &amp; Corrosion Specialists</span>
           </div>
           <h1 className="contact-hero-title">Contact Our Engineering Team</h1>
           <p className="contact-hero-subtitle">
@@ -87,7 +88,7 @@ export default function ContactPage({ onBackTo404 }) {
       {/* Main Grid: Info + Contact Form */}
       <section className="contact-main-section">
         <div className="contact-main-container">
-          {/* Left Column: Direct Contact Info */}
+          {/* Left Column: Direct Contact Info (Zero Shadows) */}
           <div className="contact-info-column animate-fade-in-up">
             <div className="contact-info-card">
               <h2 className="contact-card-title">Corporate Headquarters</h2>
@@ -147,7 +148,7 @@ export default function ContactPage({ onBackTo404 }) {
                   <div>
                     <span className="contact-detail-label">Working Hours</span>
                     <p className="contact-detail-val">Monday – Friday: 8:00 AM – 5:00 PM</p>
-                    <p className="contact-detail-sub">Saturday & Sunday: Closed</p>
+                    <p className="contact-detail-sub">Saturday &amp; Sunday: Closed</p>
                   </div>
                 </div>
               </div>
@@ -171,7 +172,7 @@ export default function ContactPage({ onBackTo404 }) {
             </div>
           </div>
 
-          {/* Right Column: Interactive Consultation Form */}
+          {/* Right Column: Interactive Consultation Form (Zero Shadows) */}
           <div className="contact-form-column animate-fade-in-up delay-100">
             <div className="contact-form-card">
               <h2 className="contact-card-title">Send Us a Direct Message</h2>
@@ -298,7 +299,7 @@ export default function ContactPage({ onBackTo404 }) {
 
                   <div className="form-group">
                     <label htmlFor="message" className="form-label">
-                      Project Description & Requirements *
+                      Project Description &amp; Requirements *
                     </label>
                     <textarea
                       id="message"

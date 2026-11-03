@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import './FinalCTA.css'
 
 export default function FinalCTA({ onContactClick }) {
   return (

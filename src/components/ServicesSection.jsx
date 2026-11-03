@@ -1,5 +1,3 @@
-import { ArrowUpRight } from 'lucide-react'
-
 export default function ServicesSection({ onSelectService }) {
   const services = [
     {
@@ -7,28 +5,24 @@ export default function ServicesSection({ onSelectService }) {
       title: 'Pipeline Integrity Services',
       img: '/service1.jpg',
       alt: 'Industrial oil and gas pipeline infrastructure',
-      desc: 'Comprehensive inline inspection, defect assessment, and failure risk mitigation.',
     },
     {
       id: 2,
       title: 'Corrosion, Material Selection & Engineering',
       img: '/service2.jpg',
       alt: 'Corroded structural metal and pipeline material testing',
-      desc: 'Advanced metallurgy, cathodic protection modeling, and anti-corrosion barrier design.',
     },
     {
       id: 3,
       title: 'Training',
       img: '/service3.jpg',
       alt: 'Professional engineering training session with laptops',
-      desc: 'Certified NACE and API corrosion engineering masterclasses for industry teams.',
     },
     {
       id: 4,
       title: 'Research & Development',
       img: '/service4.jpg',
       alt: 'Corrosion research and laboratory analysis session',
-      desc: 'Pioneering non-destructive testing methodologies and smart sensor integration.',
     },
   ]
 
@@ -53,7 +47,7 @@ export default function ServicesSection({ onSelectService }) {
           </div>
         </div>
 
-        {/* 4 Cards Grid */}
+        {/* 4 Items Grid with sharp corners & zero shadows */}
         <div className="home-services-grid">
           {services.map((item, idx) => (
             <div
@@ -75,9 +69,6 @@ export default function ServicesSection({ onSelectService }) {
                   loading="lazy"
                 />
                 <div className="service-card-gradient" />
-                <div className="service-card-hover-icon">
-                  <ArrowUpRight size={20} />
-                </div>
               </div>
 
               <div className="service-card-info">
@@ -90,4 +81,3 @@ export default function ServicesSection({ onSelectService }) {
     </section>
   )
 }
-

@@ -33,20 +33,20 @@ export default function WhyChooseUsSection() {
           Why Choose Canchuks Corrosion?
         </h2>
 
-        {/* 3 Columns Grid */}
+        {/* 3 Clean Columns matching design (no card box, no shadows) */}
         <div className="home-why-grid">
           {features.map((item, idx) => {
             const IconComponent = item.icon
             return (
               <div
                 key={item.id}
-                className={`why-card animate-fade-in-up delay-${(idx + 1) * 100}`}
+                className={`why-col animate-fade-in-up delay-${(idx + 1) * 100}`}
               >
-                <div className="why-icon-bubble">
-                  <IconComponent size={22} className="why-icon" />
+                <div className="why-icon-badge">
+                  <IconComponent size={20} className="why-icon" />
                 </div>
-                <h3 className="why-card-title">{item.title}</h3>
-                <p className="why-card-text">{item.text}</p>
+                <h3 className="why-col-title">{item.title}</h3>
+                <p className="why-col-text">{item.text}</p>
               </div>
             )
           })}
@@ -55,4 +55,3 @@ export default function WhyChooseUsSection() {
     </section>
   )
 }
-

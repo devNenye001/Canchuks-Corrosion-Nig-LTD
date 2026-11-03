@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, ExternalLink } from 'lucide-react'
+import './Footer.css'
 
 export default function Footer({ onNavigate }) {
   const companyLinks = [

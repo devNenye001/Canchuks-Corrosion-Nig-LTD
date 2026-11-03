@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ArrowRight, X } from 'lucide-react'
+import './Navbar.css'
 
 export default function Navbar({ currentPage, onNavigate }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

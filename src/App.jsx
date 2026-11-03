@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
-import HomePage from './components/HomePage'
-import NotFoundHero from './components/NotFoundHero'
-import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
-import ContactPage from './components/ContactPage'
+import Home from './pages/Home'
+import NotFound from './pages/NotFound'
+import Contact from './pages/Contact'
 import './App.css'
 
 function App() {
@@ -44,7 +43,7 @@ function App() {
     }
   }
 
-  // Cycle views for easy testing: home -> 404 -> contact -> home
+  // Cycle views for testing: home -> 404 -> contact -> home
   const cycleView = () => {
     if (currentPage === 'home') handleNavigate('404')
     else if (currentPage === '404') handleNavigate('contact')
@@ -53,23 +52,14 @@ function App() {
 
   return (
     <div className="app-layout">
-      {/* Dynamic Navbar: transparent over dark hero, solid white when scrolled or on white pages */}
+      {/* Navbar with reduced logo (reduced by 20px) */}
       <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
 
-      {/* Main View Area */}
+      {/* Pages */}
       <main className="main-content">
-        {currentPage === 'home' && <HomePage onNavigate={handleNavigate} />}
-
-        {currentPage === '404' && (
-          <>
-            <NotFoundHero onGoHome={() => handleNavigate('home')} />
-            <FinalCTA onContactClick={() => handleNavigate('contact')} />
-          </>
-        )}
-
-        {currentPage === 'contact' && (
-          <ContactPage onBackTo404={() => handleNavigate('home')} />
-        )}
+        {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
+        {currentPage === '404' && <NotFound onNavigate={handleNavigate} />}
+        {currentPage === 'contact' && <Contact onNavigate={handleNavigate} />}
       </main>
 
       {/* Global 5-Column Responsive Footer */}
@@ -79,7 +69,7 @@ function App() {
       <aside
         className="view-switch-pill"
         onClick={cycleView}
-        title="Click to switch view (Home / 404 / Contact Us)"
+        title="Click to cycle page view (Home / 404 / Contact Us)"
       >
         <span className="view-indicator-dot" />
         <span>
