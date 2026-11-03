@@ -17,6 +17,14 @@
   letter-spacing: 0.02em;
 }
 
+.section-kicker.text-center {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .text-center {
   text-align: center;
 }
@@ -271,6 +279,7 @@
 .home-tech-container {
   max-width: 1100px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .home-tech-title {
@@ -324,6 +333,7 @@
 .home-why-container {
   max-width: 1240px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .home-why-title {

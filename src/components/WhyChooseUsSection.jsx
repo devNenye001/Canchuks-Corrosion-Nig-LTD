@@ -29,6 +29,7 @@ export default function WhyChooseUsSection() {
         {/* Kicker */}
         <motion.div
           className="section-kicker text-center"
+          style={{ display: 'block', width: '100%', textAlign: 'center' }}
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
