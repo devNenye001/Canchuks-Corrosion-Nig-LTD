@@ -71,17 +71,6 @@ function App() {
     }
   }
 
-  // Cycle views for testing: home -> about -> services -> partners -> knowledge -> contact -> 404 -> home
-  const cycleView = () => {
-    if (currentPage === 'home') handleNavigate('about')
-    else if (currentPage === 'about') handleNavigate('services')
-    else if (currentPage === 'services') handleNavigate('partners')
-    else if (currentPage === 'partners') handleNavigate('knowledge')
-    else if (currentPage === 'knowledge') handleNavigate('contact')
-    else if (currentPage === 'contact') handleNavigate('404')
-    else handleNavigate('home')
-  }
-
   return (
     <div className="app-layout">
       {/* Navbar with borderless design, thick pill button, and reduced logo */}
@@ -100,32 +89,6 @@ function App() {
 
       {/* Global 5-Column Responsive Footer */}
       <Footer onNavigate={handleNavigate} />
-
-      {/* Quick View Switcher Pill */}
-      <aside
-        className="view-switch-pill"
-        onClick={cycleView}
-        title="Click to cycle page view (Home / About Us / Services / Partners / Knowledge / Contact Us / 404)"
-      >
-        <span className="view-indicator-dot" />
-        <span>
-          View:{' '}
-          {currentPage === 'home'
-            ? 'Home'
-            : currentPage === 'about'
-            ? 'About Us'
-            : currentPage === 'services'
-            ? 'Services'
-            : currentPage === 'partners'
-            ? 'Partners'
-            : currentPage === 'knowledge'
-            ? 'Knowledge'
-            : currentPage === 'contact'
-            ? 'Contact Us'
-            : '404 Page'}{' '}
-          (Click to cycle)
-        </span>
-      </aside>
     </div>
   )
 }

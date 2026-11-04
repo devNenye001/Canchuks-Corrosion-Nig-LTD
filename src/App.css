@@ -89,35 +89,3 @@
 .btn-white-pill:hover .btn-icon-arrow {
   transform: translateX(4px);
 }
-
-/* --------------------------------------------------------------------------
-   VIEW SWITCHER PILL (Flat, zero shadows)
-   -------------------------------------------------------------------------- */
-.view-switch-pill {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  background: #0f172a;
-  color: #ffffff;
-  padding: 8px 14px;
-  border-radius: 9999px;
-  font-size: 12.5px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: background var(--transition-fast);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.view-switch-pill:hover {
-  background: #1e293b;
-}
-
-.view-indicator-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-orange);
-}
