@@ -1,5 +1,6 @@
 import { Send, Eye } from 'lucide-react'
 import { motion } from 'framer-motion'
+import ScrollWordReveal from '../components/ScrollWordReveal'
 import FinalCTA from '../components/FinalCTA'
 import './About.css'
 
@@ -62,29 +63,20 @@ export default function About({ onNavigate }) {
             </motion.div>
           </div>
 
-          <motion.h2
-            className="about-intro-headline"
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Canchuks Corrosion Inc is a renowned corrosion engineering company that
-            specializes in variety of corrosion services including some of the
-            following: corrosion, materials and engineering, pipeline integrity services,
-            trainings, research, and development.
-          </motion.h2>
-
-          <motion.p
-            className="about-intro-subtext"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            With our customized pipeline integrity solutions, we extend the service life of
-            buried unpiggable pipeline assets.
-          </motion.p>
+          <ScrollWordReveal
+            items={[
+              {
+                text: 'Canchuks Corrosion Inc is a renowned corrosion engineering company that specializes in variety of corrosion services including some of the following; corrosion, materials and engineering, pipeline integrity services, trainings, research, and development.',
+                className: 'about-intro-headline',
+                as: 'h2',
+              },
+              {
+                text: 'With our customized pipeline integrity solutions, we extend the service life of buried unpiggable pipeline assets.',
+                className: 'about-intro-subtext',
+                as: 'p',
+              },
+            ]}
+          />
         </div>
       </section>
 
@@ -241,3 +233,4 @@ export default function About({ onNavigate }) {
     </div>
   )
 }
+

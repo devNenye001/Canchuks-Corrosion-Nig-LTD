@@ -1,5 +1,6 @@
 import { ChevronRight, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
+import ScrollWordReveal from '../components/ScrollWordReveal'
 import FinalCTA from '../components/FinalCTA'
 import './Partners.css'
 
@@ -60,29 +61,23 @@ export default function Partners({ onNavigate }) {
         </div>
       </section>
 
-      {/* 2. Intro Statement Section */}
+      {/* 2. Intro Statement Section with Scroll Color Reveal Animation */}
       <section className="partners-intro-section" aria-label="CMIT Global Capability">
         <div className="partners-intro-container">
-          <motion.h2
-            className="partners-intro-headline"
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Canchuks Corrosion Inc. offers Contactless Magnetic Inspection Technology (CMIT)
-            Globally,
-          </motion.h2>
-
-          <motion.p
-            className="partners-intro-subtext"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            and at the forefront of innovative solutions for management of unpiggable lines
-          </motion.p>
+          <ScrollWordReveal
+            items={[
+              {
+                text: 'Canchuks Corrosion Inc. offers Contactless Magnetic Inspection Technology (CMIT) Globally,',
+                className: 'partners-intro-headline',
+                as: 'h2',
+              },
+              {
+                text: 'and at the forefront of innovative solutions for management of unpiggable lines',
+                className: 'partners-intro-subtext',
+                as: 'p',
+              },
+            ]}
+          />
         </div>
       </section>
 
@@ -260,3 +255,4 @@ export default function Partners({ onNavigate }) {
     </div>
   )
 }
+

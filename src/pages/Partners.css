@@ -31,7 +31,7 @@
 .partners-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/service4.jpg');
+  background-image: url('/service3.jpg');
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
@@ -108,6 +108,15 @@
   max-width: 860px;
   margin: 0 auto;
   text-align: center;
+}
+
+.scroll-reveal-container {
+  display: block;
+}
+
+.scroll-reveal-word-wrap {
+  display: inline-block;
+  will-change: opacity, color;
 }
 
 .partners-intro-headline {

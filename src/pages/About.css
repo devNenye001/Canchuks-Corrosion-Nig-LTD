@@ -110,6 +110,15 @@
   text-align: center;
 }
 
+.scroll-reveal-container {
+  display: block;
+}
+
+.scroll-reveal-word-wrap {
+  display: inline-block;
+  will-change: opacity, color;
+}
+
 .about-kicker-wrapper {
   display: flex;
   justify-content: center;
@@ -428,3 +437,4 @@
     text-align: left;
   }
 }
+
