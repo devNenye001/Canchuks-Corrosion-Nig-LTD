@@ -67,15 +67,11 @@ export default function Partners({ onNavigate }) {
           <ScrollWordReveal
             items={[
               {
-                text: 'Canchuks Corrosion Inc. offers Contactless Magnetic Inspection Technology (CMIT) Globally,',
+                text: 'Canchuks Corrosion Inc. offers Contactless Magnetic Inspection Technology (CMIT) Globally, and at the forefront of innovative solutions for management of unpiggable lines',
                 className: 'partners-intro-headline',
                 as: 'h2',
               },
-              {
-                text: 'and at the forefront of innovative solutions for management of unpiggable lines',
-                className: 'partners-intro-subtext',
-                as: 'p',
-              },
+              
             ]}
           />
         </div>

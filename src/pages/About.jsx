@@ -66,15 +66,10 @@ export default function About({ onNavigate }) {
           <ScrollWordReveal
             items={[
               {
-                text: 'Canchuks Corrosion Inc is a renowned corrosion engineering company that specializes in variety of corrosion services including some of the following; corrosion, materials and engineering, pipeline integrity services, trainings, research, and development.',
+                text: 'Canchuks Corrosion Inc is a renowned corrosion engineering company that specializes in variety of corrosion services including some of the following; corrosion, materials and engineering, pipeline integrity services, trainings, research, and development. With our customized pipeline integrity solutions, we extend the service life of buried unpiggable pipeline assets.',
                 className: 'about-intro-headline',
                 as: 'h2',
-              },
-              {
-                text: 'With our customized pipeline integrity solutions, we extend the service life of buried unpiggable pipeline assets.',
-                className: 'about-intro-subtext',
-                as: 'p',
-              },
+              }
             ]}
           />
         </div>
