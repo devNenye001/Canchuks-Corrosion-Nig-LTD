@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ArrowRight, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import './Navbar.css'
 
 export default function Navbar({ currentPage, onNavigate }) {
@@ -197,31 +197,10 @@ export default function Navbar({ currentPage, onNavigate }) {
                 onClick={() => handleLinkClick(item.id)}
               >
                 <span>{item.name}</span>
-                <ArrowRight size={16} className="mobile-chevron" />
               </button>
             </li>
           ))}
         </ul>
-
-        <div className="navbar-mobile-footer">
-          <button
-            type="button"
-            className="btn-orange-pill navbar-mobile-cta"
-            onClick={handleContactClick}
-          >
-            <span>Contact Us</span>
-            <ArrowRight size={18} />
-          </button>
-
-          <div className="navbar-mobile-info">
-            <p>
-              <strong>Hotline:</strong> +2349128209328
-            </p>
-            <p>
-              <strong>Email:</strong> canchukscorrosioninc@gmail.com
-            </p>
-          </div>
-        </div>
       </div>
     </header>
   )

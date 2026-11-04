@@ -74,13 +74,13 @@
   margin: 0 auto;
 }
 
-/* Concave upward bottom curve */
+/* Downward convex bottom curve */
 .services-hero-curve {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 68px;
   line-height: 0;
   z-index: 4;
   pointer-events: none;

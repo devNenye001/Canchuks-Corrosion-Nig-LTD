@@ -136,7 +136,7 @@
 .home-about-title {
   font-family: var(--font-family);
   font-size: 38px;
-  font-weight: 400 !important; /* Headings 400 */
+  font-weight: 400 !important; 
   line-height: 1.25;
   color: #0f172a;
   letter-spacing: -0.015em;

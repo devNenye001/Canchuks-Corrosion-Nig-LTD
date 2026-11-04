@@ -272,7 +272,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 12px 14px;
   font-size: 16px;
   font-weight: 400;
@@ -286,40 +286,6 @@
 .navbar-mobile-link.is-active {
   background-color: var(--color-orange-light);
   color: var(--color-orange);
-}
-
-.mobile-chevron {
-  opacity: 0.5;
-  transition: transform var(--transition-fast);
-}
-
-.navbar-mobile-link:hover .mobile-chevron {
-  opacity: 1;
-  transform: translateX(3px);
-}
-
-.navbar-mobile-footer {
-  padding-top: 16px;
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.navbar-mobile-cta {
-  width: 100%;
-  padding: 14px;
-  font-size: 15px;
-}
-
-.navbar-mobile-info {
-  font-size: 13px;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-}
-
-.navbar-mobile-info strong {
-  color: var(--color-dark);
 }
 
 @media (max-width: 960px) {

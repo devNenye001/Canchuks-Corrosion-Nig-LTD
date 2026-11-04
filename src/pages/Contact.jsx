@@ -33,11 +33,11 @@ export default function Contact({ onNavigate }) {
           </p>
         </motion.div>
 
-        {/* Concave upward bottom curve */}
+        {/* Downward convex bottom curve matching design */}
         <div className="contact-hero-curve" aria-hidden="true">
-          <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
+          <svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none">
             <path
-              d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z"
+              d="M0,0 C480,80 960,80 1440,0 L1440,80 L0,80 Z"
               fill="#ffffff"
             />
           </svg>
