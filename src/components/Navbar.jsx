@@ -51,6 +51,7 @@ export default function Navbar({ currentPage, onNavigate }) {
     (currentPage === 'home' ||
       currentPage === 'about' ||
       currentPage === 'services' ||
+      currentPage === 'partners' ||
       currentPage === 'contact') &&
     !scrolled
 
@@ -63,16 +64,7 @@ export default function Navbar({ currentPage, onNavigate }) {
     } else if (id === 'services') {
       onNavigate('services')
     } else if (id === 'partners') {
-      if (currentPage === 'home') {
-        const el = document.getElementById('partners-section')
-        if (el) el.scrollIntoView({ behavior: 'smooth' })
-      } else {
-        onNavigate('home')
-        setTimeout(() => {
-          const el = document.getElementById('partners-section')
-          if (el) el.scrollIntoView({ behavior: 'smooth' })
-        }, 100)
-      }
+      onNavigate('partners')
     } else {
       onNavigate(id)
     }

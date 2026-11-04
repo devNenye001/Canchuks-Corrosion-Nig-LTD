@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
+import Partners from './pages/Partners'
 import Knowledge from './pages/Knowledge'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
@@ -14,6 +15,7 @@ function App() {
     const hash = window.location.hash.replace('#', '')
     if (hash === 'about') return 'about'
     if (hash === 'services') return 'services'
+    if (hash === 'partners') return 'partners'
     if (hash === 'knowledge') return 'knowledge'
     if (hash === 'contact') return 'contact'
     if (hash === '404') return '404'
@@ -27,6 +29,7 @@ function App() {
       const hash = window.location.hash.replace('#', '')
       if (hash === 'about') setCurrentPage('about')
       else if (hash === 'services') setCurrentPage('services')
+      else if (hash === 'partners') setCurrentPage('partners')
       else if (hash === 'knowledge') setCurrentPage('knowledge')
       else if (hash === 'contact') setCurrentPage('contact')
       else if (hash === '404') setCurrentPage('404')
@@ -44,6 +47,10 @@ function App() {
     } else if (page === 'services') {
       window.location.hash = 'services'
       setCurrentPage('services')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else if (page === 'partners') {
+      window.location.hash = 'partners'
+      setCurrentPage('partners')
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else if (page === 'knowledge') {
       window.location.hash = 'knowledge'
@@ -64,11 +71,12 @@ function App() {
     }
   }
 
-  // Cycle views for testing: home -> about -> services -> knowledge -> contact -> 404 -> home
+  // Cycle views for testing: home -> about -> services -> partners -> knowledge -> contact -> 404 -> home
   const cycleView = () => {
     if (currentPage === 'home') handleNavigate('about')
     else if (currentPage === 'about') handleNavigate('services')
-    else if (currentPage === 'services') handleNavigate('knowledge')
+    else if (currentPage === 'services') handleNavigate('partners')
+    else if (currentPage === 'partners') handleNavigate('knowledge')
     else if (currentPage === 'knowledge') handleNavigate('contact')
     else if (currentPage === 'contact') handleNavigate('404')
     else handleNavigate('home')
@@ -84,6 +92,7 @@ function App() {
         {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
         {currentPage === 'about' && <About onNavigate={handleNavigate} />}
         {currentPage === 'services' && <Services onNavigate={handleNavigate} />}
+        {currentPage === 'partners' && <Partners onNavigate={handleNavigate} />}
         {currentPage === 'knowledge' && <Knowledge onNavigate={handleNavigate} />}
         {currentPage === 'contact' && <Contact onNavigate={handleNavigate} />}
         {currentPage === '404' && <NotFound onNavigate={handleNavigate} />}
@@ -96,7 +105,7 @@ function App() {
       <aside
         className="view-switch-pill"
         onClick={cycleView}
-        title="Click to cycle page view (Home / About Us / Services / Knowledge / Contact Us / 404)"
+        title="Click to cycle page view (Home / About Us / Services / Partners / Knowledge / Contact Us / 404)"
       >
         <span className="view-indicator-dot" />
         <span>
@@ -107,6 +116,8 @@ function App() {
             ? 'About Us'
             : currentPage === 'services'
             ? 'Services'
+            : currentPage === 'partners'
+            ? 'Partners'
             : currentPage === 'knowledge'
             ? 'Knowledge'
             : currentPage === 'contact'
