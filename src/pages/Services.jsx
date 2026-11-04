@@ -89,7 +89,7 @@ export default function Services({ onNavigate }) {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6 }}
           >
-            Everything You Need to Build With Confidence.
+            Comprehensive Pipeline Integrity &amp; Corrosion Engineering Solutions.
           </motion.h2>
 
           <div className="services-cards-list">
