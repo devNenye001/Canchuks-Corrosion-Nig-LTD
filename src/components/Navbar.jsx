@@ -48,22 +48,31 @@ export default function Navbar({ currentPage, onNavigate }) {
   ]
 
   const isTransparentHero =
-    (currentPage === 'home' || currentPage === 'services' || currentPage === 'contact') && !scrolled
+    (currentPage === 'home' ||
+      currentPage === 'about' ||
+      currentPage === 'services' ||
+      currentPage === 'contact') &&
+    !scrolled
 
   const handleLinkClick = (id) => {
     setMobileMenuOpen(false)
     if (id === 'home') {
       onNavigate('home')
+    } else if (id === 'about') {
+      onNavigate('about')
     } else if (id === 'services') {
       onNavigate('services')
-    } else if (id === 'about' && currentPage === 'home') {
-      const el = document.getElementById('about-section')
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
-      else onNavigate('about')
-    } else if (id === 'partners' && currentPage === 'home') {
-      const el = document.getElementById('partners-section')
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
-      else onNavigate('partners')
+    } else if (id === 'partners') {
+      if (currentPage === 'home') {
+        const el = document.getElementById('partners-section')
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        onNavigate('home')
+        setTimeout(() => {
+          const el = document.getElementById('partners-section')
+          if (el) el.scrollIntoView({ behavior: 'smooth' })
+        }, 100)
+      }
     } else {
       onNavigate(id)
     }

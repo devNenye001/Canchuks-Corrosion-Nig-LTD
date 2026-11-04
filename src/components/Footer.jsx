@@ -46,7 +46,7 @@ export default function Footer({ onNavigate }) {
               rel="noopener noreferrer"
               className="footer-external-link"
             >
-              <span>https://canchukscorrosion.com/</span>
+              <span>canchukscorrosion.com</span>
               <ExternalLink size={14} className="external-icon" />
             </a>
           </div>
