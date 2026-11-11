@@ -40,11 +40,11 @@ export default function Navbar({ currentPage, onNavigate }) {
   }, [mobileMenuOpen])
 
   const navLinks = [
-    { name: 'Home', id: 'home' },
-    { name: 'About Us', id: 'about' },
-    { name: 'Services', id: 'services' },
-    { name: 'Partners', id: 'partners' },
-    { name: 'Knowledge', id: 'knowledge' },
+    { name: 'Home', id: 'home', href: '/' },
+    { name: 'About Us', id: 'about', href: '/about' },
+    { name: 'Services', id: 'services', href: '/services' },
+    { name: 'Partners', id: 'partners', href: '/partners' },
+    { name: 'Knowledge', id: 'knowledge', href: '/knowledge' },
   ]
 
   const isTransparentHero =
@@ -55,7 +55,8 @@ export default function Navbar({ currentPage, onNavigate }) {
       currentPage === 'contact') &&
     !scrolled
 
-  const handleLinkClick = (id) => {
+  const handleLinkClick = (e, id) => {
+    if (e) e.preventDefault()
     setMobileMenuOpen(false)
     if (id === 'home') {
       onNavigate('home')
@@ -70,7 +71,8 @@ export default function Navbar({ currentPage, onNavigate }) {
     }
   }
 
-  const handleContactClick = () => {
+  const handleContactClick = (e) => {
+    if (e) e.preventDefault()
     setMobileMenuOpen(false)
     onNavigate('contact')
   }
@@ -83,20 +85,21 @@ export default function Navbar({ currentPage, onNavigate }) {
     >
       <div className="navbar-container">
         {/* Left: Brand Logo */}
-        <div
+        <a
+          href="/"
           className="navbar-brand"
-          onClick={() => onNavigate('home')}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => e.key === 'Enter' && onNavigate('home')}
-          aria-label="Canchuks Corrosion Home"
+          onClick={(e) => {
+            e.preventDefault()
+            onNavigate('home')
+          }}
+          aria-label="Canchuks Corrosion Nigeria Limited Home"
         >
           <img
             src={isTransparentHero ? '/logo-white.png' : '/logo-black.png'}
-            alt="Canchuks Corrosion Inc. Logo"
+            alt="Canchuks Corrosion Nigeria Limited Logo"
             className="navbar-logo-img"
           />
-        </div>
+        </a>
 
         {/* Center: Desktop Navigation Links */}
         <nav className="navbar-desktop-nav" aria-label="Main Navigation">
@@ -107,16 +110,17 @@ export default function Navbar({ currentPage, onNavigate }) {
                 (currentPage === 'home' && item.id === 'home')
               return (
                 <li key={item.id} className="navbar-nav-item">
-                  <button
-                    type="button"
+                  <a
+                    href={item.href}
                     className={`navbar-nav-link ${isActive ? 'is-active' : ''} ${
                       isTransparentHero ? 'nav-link-light' : 'nav-link-dark'
                     }`}
-                    onClick={() => handleLinkClick(item.id)}
+                    onClick={(e) => handleLinkClick(e, item.id)}
+                    aria-current={isActive ? 'page' : undefined}
                   >
                     {item.name}
-                    <span className="navbar-nav-indicator" />
-                  </button>
+                    <span className="navbar-nav-indicator" aria-hidden="true" />
+                  </a>
                 </li>
               )
             })}
@@ -125,13 +129,13 @@ export default function Navbar({ currentPage, onNavigate }) {
 
         {/* Right: Contact Us CTA button (Desktop) */}
         <div className="navbar-cta-wrapper">
-          <button
-            type="button"
+          <a
+            href="/contact"
             className="btn-orange-pill navbar-contact-btn"
             onClick={handleContactClick}
           >
             <span>Contact Us</span>
-          </button>
+          </a>
         </div>
 
         {/* Mobile Burger Menu Button */}
@@ -179,28 +183,31 @@ export default function Navbar({ currentPage, onNavigate }) {
           </button>
         </div>
 
-        <ul className="navbar-mobile-list">
-          {navLinks.map((item, idx) => (
-            <li
-              key={item.id}
-              className="navbar-mobile-item"
-              style={{ animationDelay: `${idx * 60 + 100}ms` }}
-            >
-              <button
-                type="button"
-                className={`navbar-mobile-link ${
-                  currentPage === item.id ||
-                  (currentPage === 'home' && item.id === 'home')
-                    ? 'is-active'
-                    : ''
-                }`}
-                onClick={() => handleLinkClick(item.id)}
-              >
-                <span>{item.name}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
+        <nav aria-label="Mobile Navigation">
+          <ul className="navbar-mobile-list">
+            {navLinks.map((item, idx) => {
+              const isActive =
+                currentPage === item.id ||
+                (currentPage === 'home' && item.id === 'home')
+              return (
+                <li
+                  key={item.id}
+                  className="navbar-mobile-item"
+                  style={{ animationDelay: `${idx * 60 + 100}ms` }}
+                >
+                  <a
+                    href={item.href}
+                    className={`navbar-mobile-link ${isActive ? 'is-active' : ''}`}
+                    onClick={(e) => handleLinkClick(e, item.id)}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    <span>{item.name}</span>
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </nav>
       </div>
     </header>
   )

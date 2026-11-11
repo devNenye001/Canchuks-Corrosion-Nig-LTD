@@ -15,9 +15,17 @@ export default function About({ onNavigate }) {
   return (
     <div className="about-page-wrapper">
       {/* 1. Hero Banner with service1.jpg and concave upward bottom curve */}
-      <section className="about-hero-banner" aria-label="About Us Banner">
-        <div className="about-hero-bg" />
-        <div className="about-hero-overlay" />
+      <section
+        id="about-hero"
+        className="about-hero-banner"
+        aria-labelledby="about-hero-heading"
+      >
+        <div
+          className="about-hero-bg"
+          role="img"
+          aria-label="Industrial oil and gas facility showcasing Canchuks Corrosion Nigeria Limited engineering services"
+        />
+        <div className="about-hero-overlay" aria-hidden="true" />
 
         <motion.div
           className="about-hero-container"
@@ -25,7 +33,7 @@ export default function About({ onNavigate }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="about-hero-title">
+          <h1 id="about-hero-heading" className="about-hero-title">
             Corrosion, Materials,
             <br />
             Pipeline Integrity Services
@@ -49,7 +57,11 @@ export default function About({ onNavigate }) {
       </section>
 
       {/* 2. Intro Statement Section */}
-      <section className="about-intro-section" aria-label="About Canchuks Corrosion">
+      <section
+        id="about-intro"
+        className="about-intro-section"
+        aria-labelledby="about-intro-heading"
+      >
         <div className="about-intro-container">
           <div className="about-kicker-wrapper">
             <motion.div
@@ -66,6 +78,7 @@ export default function About({ onNavigate }) {
           <ScrollWordReveal
             items={[
               {
+                id: 'about-intro-heading',
                 text: 'Canchuks Corrosion Inc is a renowned corrosion engineering company that specializes in variety of corrosion services including some of the following; corrosion, materials and engineering, pipeline integrity services, trainings, research, and development. With our customized pipeline integrity solutions, we extend the service life of buried unpiggable pipeline assets.',
                 className: 'about-intro-headline',
                 as: 'h2',
@@ -76,11 +89,15 @@ export default function About({ onNavigate }) {
       </section>
 
       {/* 3. Mission & Vision Section */}
-      <section className="about-values-section" aria-label="Our Mission and Vision">
+      <section
+        id="mission-and-vision"
+        className="about-values-section"
+        aria-label="Our Mission and Vision"
+      >
         <div className="about-values-container">
           <div className="about-values-grid">
             {/* Mission Column */}
-            <motion.div
+            <motion.article
               className="about-value-col"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -103,10 +120,10 @@ export default function About({ onNavigate }) {
                 asset performance, ensure regulatory compliance, and make informed
                 decisions that protect people, assets, and the environment.
               </p>
-            </motion.div>
+            </motion.article>
 
             {/* Vision Column */}
-            <motion.div
+            <motion.article
               className="about-value-col"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -128,13 +145,17 @@ export default function About({ onNavigate }) {
                 reliability, and sustainable infrastructure management throughout the
                 energy sector.
               </p>
-            </motion.div>
+            </motion.article>
           </div>
         </div>
       </section>
 
       {/* 4. Industrial Machinery Full-Width Image Section (about-img.jpg) */}
-      <section className="about-banner-media-section" aria-label="Engineering In Action">
+      <section
+        id="engineering-in-action"
+        className="about-banner-media-section"
+        aria-label="Engineering In Action"
+      >
         <div className="about-banner-media-container">
           <motion.div
             className="about-banner-image-wrapper"
@@ -154,7 +175,13 @@ export default function About({ onNavigate }) {
       </section>
 
       {/* 5. Leadership Profile: Dr. Chukwuma (Chuks) Onuoha */}
-      <section className="about-profile-section" aria-label="Leadership Profile">
+      <section
+        id="leadership-profile"
+        className="about-profile-section"
+        aria-labelledby="about-profile-heading"
+        itemScope
+        itemType="https://schema.org/Person"
+      >
         <div className="about-profile-container">
           <motion.div
             className="about-profile-header text-center"
@@ -163,10 +190,10 @@ export default function About({ onNavigate }) {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="about-profile-name">
+            <h2 id="about-profile-heading" className="about-profile-name" itemProp="name">
               Chukwuma (Chuks) Onuoha (P. Eng, PhD, FICorr, MBA)
             </h2>
-            <p className="about-profile-role">
+            <p className="about-profile-role" itemProp="jobTitle">
               AMPP Certified Corrosion Engineering Specialist
             </p>
           </motion.div>
@@ -182,6 +209,7 @@ export default function About({ onNavigate }) {
               src="/chuks-pic.jpg"
               alt="Dr. Chukwuma (Chuks) Onuoha speaking at the AMPP Conference podium"
               className="about-profile-img"
+              itemProp="image"
               loading="lazy"
             />
           </motion.div>
@@ -193,7 +221,7 @@ export default function About({ onNavigate }) {
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.2 }}
           >
-            <p className="about-profile-bio">
+            <p className="about-profile-bio" itemProp="description">
               Dr Chukwuma (Chuks) Onuoha, P.Eng., PhD is a Principal Corrosion Engineering Lead
               at Canchuks Corrosion Inc Canada specializing in pipeline integrity, corrosion
               engineering, and advanced inspection technologies. He holds an MSc in Corrosion
@@ -215,6 +243,7 @@ export default function About({ onNavigate }) {
               <a
                 href="mailto:canchukscorrosioninc@gmail.com"
                 className="about-profile-email-link"
+                itemProp="email"
               >
                 Email: canchukscorrosioninc@gmail.com
               </a>

@@ -48,9 +48,17 @@ export default function Services({ onNavigate }) {
   return (
     <div className="services-page-wrapper">
       {/* 1. Hero Banner with rusty pipe texture & curved concave bottom */}
-      <section className="services-hero-banner" aria-label="Services Banner">
-        <div className="services-hero-bg" />
-        <div className="services-hero-overlay" />
+      <section
+        id="services-hero"
+        className="services-hero-banner"
+        aria-labelledby="services-hero-heading"
+      >
+        <div
+          className="services-hero-bg"
+          role="img"
+          aria-label="Corroded metal pipeline weld inspected for structural and corrosion integrity"
+        />
+        <div className="services-hero-overlay" aria-hidden="true" />
 
         <motion.div
           className="services-hero-container"
@@ -58,7 +66,7 @@ export default function Services({ onNavigate }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="services-hero-title">
+          <h1 id="services-hero-heading" className="services-hero-title">
             Pipeline Integrity &amp; Corrosion Engineering
           </h1>
           <p className="services-hero-subtitle">
@@ -80,10 +88,18 @@ export default function Services({ onNavigate }) {
       </section>
 
       {/* 2. Main Services Section (01 to 05) */}
-      <section className="services-main-section">
+      <section
+        id="pipeline-integrity-services"
+        className="services-main-section"
+        aria-labelledby="services-main-heading"
+        itemScope
+        itemType="https://schema.org/ItemList"
+      >
         <div className="services-main-container">
           <motion.h2
+            id="services-main-heading"
             className="services-main-heading"
+            itemProp="name"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
@@ -97,6 +113,9 @@ export default function Services({ onNavigate }) {
               <motion.article
                 key={item.num}
                 className="service-feature-card"
+                itemProp="itemListElement"
+                itemScope
+                itemType="https://schema.org/Service"
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
@@ -106,10 +125,17 @@ export default function Services({ onNavigate }) {
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
+                <meta itemProp="position" content={idx + 1} />
                 <div className="service-feature-content">
-                  <span className="service-feature-num">{item.num}</span>
-                  <h3 className="service-feature-title">{item.title}</h3>
-                  <p className="service-feature-desc">{item.desc}</p>
+                  <span className="service-feature-num" aria-hidden="true">
+                    {item.num}
+                  </span>
+                  <h3 className="service-feature-title" itemProp="name">
+                    {item.title}
+                  </h3>
+                  <p className="service-feature-desc" itemProp="description">
+                    {item.desc}
+                  </p>
                 </div>
 
                 <div className="service-feature-image-wrap">
@@ -117,6 +143,7 @@ export default function Services({ onNavigate }) {
                     src={item.img}
                     alt={item.alt}
                     className="service-feature-img"
+                    itemProp="image"
                     loading="lazy"
                   />
                 </div>
@@ -127,7 +154,11 @@ export default function Services({ onNavigate }) {
       </section>
 
       {/* 3. Technology Section: Discover Our CMIT Approach */}
-      <section className="services-tech-section">
+      <section
+        id="cmit-approach"
+        className="services-tech-section"
+        aria-labelledby="services-tech-heading"
+      >
         <div className="services-tech-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -136,7 +167,9 @@ export default function Services({ onNavigate }) {
             transition={{ duration: 0.6 }}
           >
             <span className="services-tech-kicker">Technology</span>
-            <h2 className="services-tech-title">Discover Our CMIT Approach</h2>
+            <h2 id="services-tech-heading" className="services-tech-title">
+              Discover Our CMIT Approach
+            </h2>
           </motion.div>
 
           <motion.div

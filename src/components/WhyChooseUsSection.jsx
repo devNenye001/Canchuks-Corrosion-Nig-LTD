@@ -24,7 +24,11 @@ export default function WhyChooseUsSection() {
   ]
 
   return (
-    <section className="home-why-section">
+    <section
+      id="why-choose-us-section"
+      className="home-why-section"
+      aria-labelledby="home-why-heading"
+    >
       <div className="home-why-container">
         {/* Kicker */}
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
@@ -42,6 +46,7 @@ export default function WhyChooseUsSection() {
 
         {/* Heading */}
         <motion.h2
+          id="home-why-heading"
           className="home-why-title text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +61,7 @@ export default function WhyChooseUsSection() {
           {features.map((item, idx) => {
             const IconComponent = item.icon
             return (
-              <motion.div
+              <motion.article
                 key={item.id}
                 className="why-col"
                 initial={{ opacity: 0, y: 24 }}
@@ -64,12 +69,12 @@ export default function WhyChooseUsSection() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.55, delay: idx * 0.12 }}
               >
-                <div className="why-icon-badge">
+                <div className="why-icon-badge" aria-hidden="true">
                   <IconComponent size={20} className="why-icon" />
                 </div>
                 <h3 className="why-col-title">{item.title}</h3>
                 <p className="why-col-text">{item.text}</p>
-              </motion.div>
+              </motion.article>
             )
           })}
         </div>

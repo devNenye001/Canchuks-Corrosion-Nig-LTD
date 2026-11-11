@@ -3,10 +3,18 @@ import { motion } from 'framer-motion'
 
 export default function HeroSection({ onContactClick, onViewServices }) {
   return (
-    <section className="home-hero-section" aria-label="Hero Section">
+    <section
+      id="hero-section"
+      className="home-hero-section"
+      aria-labelledby="hero-heading"
+    >
       {/* Background Image Layer */}
-      <div className="home-hero-bg-layer" />
-      <div className="home-hero-overlay" />
+      <div
+        className="home-hero-bg-layer"
+        role="img"
+        aria-label="Offshore and onshore oil and gas pipeline infrastructure serviced by Canchuks Corrosion Nigeria Limited"
+      />
+      <div className="home-hero-overlay" aria-hidden="true" />
 
       {/* Content Container with Framer Motion */}
       <div className="home-hero-container">
@@ -17,6 +25,7 @@ export default function HeroSection({ onContactClick, onViewServices }) {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.h1
+            id="hero-heading"
             className="home-hero-title"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -32,9 +32,17 @@ export default function Partners({ onNavigate }) {
   return (
     <div className="partners-page-wrapper">
       {/* 1. Hero Banner with service4.jpg and concave upward bottom curve */}
-      <section className="partners-hero-banner" aria-label="Partners Banner">
-        <div className="partners-hero-bg" />
-        <div className="partners-hero-overlay" />
+      <section
+        id="partners-hero"
+        className="partners-hero-banner"
+        aria-labelledby="partners-hero-heading"
+      >
+        <div
+          className="partners-hero-bg"
+          role="img"
+          aria-label="Engineering team collaborating on oil and gas pipeline integrity partnerships"
+        />
+        <div className="partners-hero-overlay" aria-hidden="true" />
 
         <motion.div
           className="partners-hero-container"
@@ -42,7 +50,9 @@ export default function Partners({ onNavigate }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="partners-hero-title">Partners</h1>
+          <h1 id="partners-hero-heading" className="partners-hero-title">
+            Partners
+          </h1>
           <p className="partners-hero-subtitle">
             At Canchuks Corrosion Nigeria, we actively value partnerships that support
             innovation, technical excellence, and reliable engineering solutions for the oil
@@ -62,16 +72,20 @@ export default function Partners({ onNavigate }) {
       </section>
 
       {/* 2. Intro Statement Section with Scroll Color Reveal Animation */}
-      <section className="partners-intro-section" aria-label="CMIT Global Capability">
+      <section
+        id="cmit-global-capability"
+        className="partners-intro-section"
+        aria-labelledby="partners-intro-heading"
+      >
         <div className="partners-intro-container">
           <ScrollWordReveal
             items={[
               {
+                id: 'partners-intro-heading',
                 text: 'Canchuks Corrosion Inc. offers Contactless Magnetic Inspection Technology (CMIT) Globally, and at the forefront of innovative solutions for management of unpiggable lines',
                 className: 'partners-intro-headline',
                 as: 'h2',
               },
-              
             ]}
           />
         </div>
@@ -79,8 +93,9 @@ export default function Partners({ onNavigate }) {
 
       {/* 3. Feature Section 1: Innovative Technology (Text Left, Image Right) */}
       <section
+        id="offshore-onshore-inspection"
         className="partners-feature-section"
-        aria-label="Innovative Technology for Offshore and Onshore Pipeline Inspection"
+        aria-labelledby="partners-tech-heading"
       >
         <div className="partners-feature-container">
           <div className="partners-feature-grid">
@@ -92,7 +107,7 @@ export default function Partners({ onNavigate }) {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h3 className="partners-feature-title">
+              <h3 id="partners-tech-heading" className="partners-feature-title">
                 Innovative Technology for Offshore and Onshore Pipeline Inspection
               </h3>
 
@@ -107,7 +122,11 @@ export default function Partners({ onNavigate }) {
                     transition={{ duration: 0.45, delay: 0.1 + idx * 0.08 }}
                     whileHover={{ x: 4 }}
                   >
-                    <ChevronRight size={18} className="partners-bullet-chevron" />
+                    <ChevronRight
+                      size={18}
+                      className="partners-bullet-chevron"
+                      aria-hidden="true"
+                    />
                     <span className="partners-bullet-text">{item}</span>
                   </motion.li>
                 ))}
@@ -136,7 +155,11 @@ export default function Partners({ onNavigate }) {
       </section>
 
       {/* 4. Feature Section 2: Benefits (Image Left, Text Right) */}
-      <section className="partners-feature-section benefits-alt-section" aria-label="Benefits">
+      <section
+        id="cmit-benefits"
+        className="partners-feature-section benefits-alt-section"
+        aria-labelledby="partners-benefits-heading"
+      >
         <div className="partners-feature-container">
           <div className="partners-feature-grid reverse-grid">
             {/* Left: partner-img2.jpg */}
@@ -165,7 +188,9 @@ export default function Partners({ onNavigate }) {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h3 className="partners-feature-title">Benefits</h3>
+              <h3 id="partners-benefits-heading" className="partners-feature-title">
+                Benefits
+              </h3>
 
               <ul className="partners-bullet-list">
                 {benefits.map((item, idx) => (
@@ -178,7 +203,11 @@ export default function Partners({ onNavigate }) {
                     transition={{ duration: 0.45, delay: 0.08 + idx * 0.06 }}
                     whileHover={{ x: 4 }}
                   >
-                    <ChevronRight size={18} className="partners-bullet-chevron" />
+                    <ChevronRight
+                      size={18}
+                      className="partners-bullet-chevron"
+                      aria-hidden="true"
+                    />
                     <span className="partners-bullet-text">{item}</span>
                   </motion.li>
                 ))}
@@ -189,9 +218,14 @@ export default function Partners({ onNavigate }) {
       </section>
 
       {/* 5. Partner With Us (Handshake Illustration & CTA) */}
-      <section className="partners-connect-section" aria-label="Partner With Us">
+      <section
+        id="partner-with-us"
+        className="partners-connect-section"
+        aria-labelledby="partners-connect-heading"
+      >
         <div className="partners-connect-container">
           <motion.h2
+            id="partners-connect-heading"
             className="partners-connect-title text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -4,13 +4,17 @@ import './FinalCTA.css'
 
 export default function FinalCTA({ onContactClick }) {
   return (
-    <section className="final-cta-section" aria-labelledby="cta-heading">
+    <section
+      id="cta-section"
+      className="final-cta-section"
+      aria-labelledby="cta-heading"
+    >
       {/* Top Accent Blue Border (#59AEDB) */}
       <div className="final-cta-accent-border top" aria-hidden="true" />
 
       {/* Background Image Container with Overlay */}
-      <div className="final-cta-bg-layer" />
-      <div className="final-cta-overlay" />
+      <div className="final-cta-bg-layer" aria-hidden="true" />
+      <div className="final-cta-overlay" aria-hidden="true" />
 
       {/* Content Container with Framer Motion */}
       <div className="final-cta-container">

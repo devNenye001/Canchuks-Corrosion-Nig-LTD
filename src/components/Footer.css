@@ -92,6 +92,7 @@
 }
 
 .footer-link-btn {
+  display: inline-block;
   font-family: var(--font-family);
   font-size: 14px;
   font-weight: 400;
@@ -101,11 +102,19 @@
   padding: 0;
   cursor: pointer;
   text-align: left;
+  text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .footer-link-btn:hover {
   color: var(--color-orange);
+}
+
+.footer-address-list {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .footer-address-item {
@@ -125,6 +134,11 @@
   font-weight: 400;
   line-height: 1.55;
   color: #475569;
+}
+
+.footer-address-label {
+  color: #0f172a;
+  font-weight: 500;
 }
 
 .footer-hours-list {

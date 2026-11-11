@@ -53,7 +53,7 @@ export default function ScrollWordReveal({
         const Tag = item.as || 'p'
 
         return (
-          <Tag key={itemIdx} className={item.className}>
+          <Tag key={itemIdx} id={item.id} className={item.className}>
             {itemWords.map((word, wIdx) => {
               const currentIdx = globalWordCounter++
               // Distribute ranges evenly across the scroll duration with a smooth 14% overlap window

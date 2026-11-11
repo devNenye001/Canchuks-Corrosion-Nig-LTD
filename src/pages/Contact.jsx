@@ -14,9 +14,17 @@ export default function Contact({ onNavigate }) {
   return (
     <div className="contact-page-wrapper">
       {/* 1. Hero Banner with service4.jpg and concave upward bottom curve */}
-      <section className="contact-hero-banner" aria-label="Contact Us Banner">
-        <div className="contact-hero-bg" />
-        <div className="contact-hero-overlay" />
+      <section
+        id="contact-hero"
+        className="contact-hero-banner"
+        aria-labelledby="contact-hero-heading"
+      >
+        <div
+          className="contact-hero-bg"
+          role="img"
+          aria-label="Canchuks Corrosion engineering team discussing pipeline integrity projects"
+        />
+        <div className="contact-hero-overlay" aria-hidden="true" />
 
         <motion.div
           className="contact-hero-container"
@@ -24,7 +32,7 @@ export default function Contact({ onNavigate }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="contact-hero-title">
+          <h1 id="contact-hero-heading" className="contact-hero-title">
             Let&apos;s Talk About What You&apos;re Building.
           </h1>
           <p className="contact-hero-subtitle">
@@ -45,7 +53,11 @@ export default function Contact({ onNavigate }) {
       </section>
 
       {/* 2. Three Info Columns */}
-      <section className="contact-info-section">
+      <section
+        id="contact-details"
+        className="contact-info-section"
+        aria-label="Contact Information and Office Locations"
+      >
         <div className="contact-info-container">
           {/* Column 1: Visit Our Office */}
           <motion.div
@@ -55,11 +67,19 @@ export default function Contact({ onNavigate }) {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <Home size={26} className="contact-col-icon" />
+            <Home size={26} className="contact-col-icon" aria-hidden="true" />
             <h2 className="contact-col-title">Visit Our Office</h2>
-            <p className="contact-col-text">
-              Address: 31, Wetheral Road, Owerri, Imo State, Nigeria.
-            </p>
+            <address
+              className="contact-col-text"
+              style={{ fontStyle: 'normal' }}
+              itemScope
+              itemType="https://schema.org/PostalAddress"
+            >
+              Address: <span itemProp="streetAddress">31, Wetheral Road</span>,{' '}
+              <span itemProp="addressLocality">Owerri</span>,{' '}
+              <span itemProp="addressRegion">Imo State</span>,{' '}
+              <span itemProp="addressCountry">Nigeria</span>.
+            </address>
           </motion.div>
 
           {/* Column 2: Call Us */}
@@ -70,7 +90,7 @@ export default function Contact({ onNavigate }) {
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.1 }}
           >
-            <Phone size={26} className="contact-col-icon" />
+            <Phone size={26} className="contact-col-icon" aria-hidden="true" />
             <h2 className="contact-col-title">Call Us</h2>
             <p className="contact-col-text">
               <a href="tel:+2349128209328" className="contact-col-link">
@@ -87,7 +107,7 @@ export default function Contact({ onNavigate }) {
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.2 }}
           >
-            <Mail size={26} className="contact-col-icon" />
+            <Mail size={26} className="contact-col-icon" aria-hidden="true" />
             <h2 className="contact-col-title">
               <a href="mailto:canchukscorrosioninc@gmail.com">
                 canchukscorrosioninc@gmail.com
@@ -102,7 +122,11 @@ export default function Contact({ onNavigate }) {
       </section>
 
       {/* 3. Embedded Google Map */}
-      <section className="contact-map-section" aria-label="Office Location Map">
+      <section
+        id="office-location-map"
+        className="contact-map-section"
+        aria-label="Office Location Map"
+      >
         <motion.div
           className="contact-map-container"
           initial={{ opacity: 0, y: 24 }}

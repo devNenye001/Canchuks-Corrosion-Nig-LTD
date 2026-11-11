@@ -2,7 +2,11 @@ import { motion } from 'framer-motion'
 
 export default function TechnologySection() {
   return (
-    <section className="home-tech-section" aria-label="Technology Demonstration">
+    <section
+      id="technology-section"
+      className="home-tech-section"
+      aria-labelledby="home-tech-heading"
+    >
       <div className="home-tech-container">
         {/* Kicker Tag */}
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
@@ -20,6 +24,7 @@ export default function TechnologySection() {
 
         {/* Heading 400 Font Weight */}
         <motion.h2
+          id="home-tech-heading"
           className="home-tech-title text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -3,10 +3,15 @@ import { motion } from 'framer-motion'
 
 export default function PartnerSection({ onContactClick }) {
   return (
-    <section id="partners-section" className="home-partner-section">
+    <section
+      id="partners-section"
+      className="home-partner-section"
+      aria-labelledby="home-partner-heading"
+    >
       <div className="home-partner-container">
         {/* Heading */}
         <motion.h2
+          id="home-partner-heading"
           className="home-partner-title text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

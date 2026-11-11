@@ -3,7 +3,11 @@ import { motion } from 'framer-motion'
 
 export default function AboutSection({ onViewServices }) {
   return (
-    <section id="about-section" className="home-about-section">
+    <section
+      id="about-section"
+      className="home-about-section"
+      aria-labelledby="home-about-heading"
+    >
       <div className="home-about-container">
         {/* Kicker Tag */}
         <motion.div
@@ -25,7 +29,7 @@ export default function AboutSection({ onViewServices }) {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h2 className="home-about-title">
+            <h2 id="home-about-heading" className="home-about-title">
               Expertise in Corrosion &amp; Pipeline Integrity
             </h2>
           </motion.div>
