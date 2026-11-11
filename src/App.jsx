@@ -21,19 +21,22 @@ const PAGE_TO_PATH = {
   404: '/404',
 }
 
-function resolvePageFromLocation() {
+function normalizeLegacyHash() {
   const hash = window.location.hash.replace('#', '').toLowerCase()
-  if (
-    hash === 'about' ||
-    hash === 'services' ||
-    hash === 'partners' ||
-    hash === 'knowledge' ||
-    hash === 'contact' ||
-    hash === '404'
-  ) {
+  if (hash && PAGE_TO_PATH[hash]) {
+    if (window.location.protocol !== 'file:') {
+      window.history.replaceState({ page: hash }, '', PAGE_TO_PATH[hash])
+    }
     return hash
   }
-  if (hash === 'home') return 'home'
+  return null
+}
+
+function resolvePageFromLocation() {
+  const hash = window.location.hash.replace('#', '').toLowerCase()
+  if (hash && PAGE_TO_PATH[hash]) {
+    return hash
+  }
 
   const path = window.location.pathname.replace(/\/+$/, '').toLowerCase() || '/'
   if (path === '/' || path === '/index.html') return 'home'
@@ -54,8 +57,11 @@ function App() {
   const [currentPage, setCurrentPage] = useState(resolvePageFromLocation)
 
   useEffect(() => {
+    normalizeLegacyHash()
+
     const syncRoute = () => {
-      setCurrentPage(resolvePageFromLocation())
+      const migratedPage = normalizeLegacyHash()
+      setCurrentPage(migratedPage || resolvePageFromLocation())
     }
     window.addEventListener('popstate', syncRoute)
     window.addEventListener('hashchange', syncRoute)
@@ -73,8 +79,6 @@ function App() {
       if (window.location.pathname !== targetPath || window.location.hash) {
         window.history.pushState({ page: targetPage }, '', targetPath)
       }
-    } else {
-      window.location.hash = targetPage === 'home' ? '' : targetPage
     }
 
     setCurrentPage(targetPage)

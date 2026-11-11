@@ -553,3 +553,4 @@ export default function SEO({ page = 'home' }) {
 
   return null
 }
+
