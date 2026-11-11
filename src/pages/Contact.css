@@ -148,6 +148,18 @@
   color: var(--color-orange);
 }
 
+.contact-address-list {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-address-label {
+  color: #0f172a;
+  font-weight: 500;
+}
+
 .contact-col-text {
   font-size: 14.5px;
   font-weight: 400; /* Regular weight */

@@ -84,12 +84,15 @@ export default function Knowledge() {
       <div className="knowledge-container">
         {/* Main Header */}
         <motion.div
+          id="knowledge-header"
           className="knowledge-main-header"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="knowledge-main-title">Knowledge</h1>
+          <h1 id="knowledge-main-heading" className="knowledge-main-title">
+            Knowledge
+          </h1>
           <p className="knowledge-main-subtitle">
             Industry publications, technical whitepapers, peer-reviewed journal articles,
             and specialized pipeline integrity methodologies authored by our leadership team.
@@ -97,8 +100,9 @@ export default function Knowledge() {
         </motion.div>
 
         {/* Category Filter Tabs */}
-        <motion.div
+        <motion.nav
           className="knowledge-tabs-wrapper"
+          aria-label="Publication Categories"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -109,11 +113,12 @@ export default function Knowledge() {
               type="button"
               className={`knowledge-tab-btn ${activeCategory === cat.id ? 'is-active' : ''}`}
               onClick={() => setActiveCategory(cat.id)}
+              aria-pressed={activeCategory === cat.id}
             >
               {cat.label}
             </button>
           ))}
-        </motion.div>
+        </motion.nav>
 
         {/* Publications Content List */}
         <div className="knowledge-sections-list">
@@ -122,13 +127,15 @@ export default function Knowledge() {
             {(activeCategory === 'all' || activeCategory === 'industry') && (
               <motion.section
                 key="industry"
+                id="industry-conferences"
                 className="knowledge-category-block"
+                aria-labelledby="industry-conferences-heading"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
               >
-                <h2 className="knowledge-category-title">
+                <h2 id="industry-conferences-heading" className="knowledge-category-title">
                   INDUSTRY CONFERENCES AND PUBLICATIONS
                 </h2>
                 <ul className="knowledge-items-list">
@@ -136,13 +143,18 @@ export default function Knowledge() {
                     <motion.li
                       key={idx}
                       className="knowledge-item-card"
+                      itemScope
+                      itemType="https://schema.org/ScholarlyArticle"
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: '-20px' }}
                       transition={{ duration: 0.35, delay: (idx % 10) * 0.03 }}
                       whileHover={{ x: 6 }}
                     >
-                      <p className="knowledge-item-text">{item}</p>
+                      <meta itemProp="author" content="Dr. Chukwuma Onuoha" />
+                      <p className="knowledge-item-text" itemProp="name">
+                        {item}
+                      </p>
                     </motion.li>
                   ))}
                 </ul>
@@ -153,25 +165,34 @@ export default function Knowledge() {
             {(activeCategory === 'all' || activeCategory === 'journals') && (
               <motion.section
                 key="journals"
+                id="academic-journals"
                 className="knowledge-category-block"
+                aria-labelledby="academic-journals-heading"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
               >
-                <h2 className="knowledge-category-title">ACADEMIC JOURNAL ARTICLES</h2>
+                <h2 id="academic-journals-heading" className="knowledge-category-title">
+                  ACADEMIC JOURNAL ARTICLES
+                </h2>
                 <ul className="knowledge-items-list">
                   {journalArticles.map((item, idx) => (
                     <motion.li
                       key={idx}
                       className="knowledge-item-card"
+                      itemScope
+                      itemType="https://schema.org/ScholarlyArticle"
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: '-20px' }}
                       transition={{ duration: 0.35, delay: idx * 0.04 }}
                       whileHover={{ x: 6 }}
                     >
-                      <p className="knowledge-item-text">{item}</p>
+                      <meta itemProp="author" content="Dr. Chukwuma Onuoha" />
+                      <p className="knowledge-item-text" itemProp="name">
+                        {item}
+                      </p>
                     </motion.li>
                   ))}
                 </ul>
@@ -182,13 +203,15 @@ export default function Knowledge() {
             {(activeCategory === 'all' || activeCategory === 'academic') && (
               <motion.section
                 key="academic"
+                id="academic-conferences"
                 className="knowledge-category-block"
+                aria-labelledby="academic-conferences-heading"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
               >
-                <h2 className="knowledge-category-title">
+                <h2 id="academic-conferences-heading" className="knowledge-category-title">
                   ACADEMIC CONFERENCES &amp; PUBLICATIONS
                 </h2>
                 <ul className="knowledge-items-list">
@@ -196,13 +219,18 @@ export default function Knowledge() {
                     <motion.li
                       key={idx}
                       className="knowledge-item-card"
+                      itemScope
+                      itemType="https://schema.org/ScholarlyArticle"
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.35, delay: idx * 0.05 }}
                       whileHover={{ x: 6 }}
                     >
-                      <p className="knowledge-item-text">{item}</p>
+                      <meta itemProp="author" content="Dr. Chukwuma Onuoha" />
+                      <p className="knowledge-item-text" itemProp="name">
+                        {item}
+                      </p>
                     </motion.li>
                   ))}
                 </ul>
@@ -213,25 +241,34 @@ export default function Knowledge() {
             {(activeCategory === 'all' || activeCategory === 'book') && (
               <motion.section
                 key="book"
+                id="invited-book-chapter"
                 className="knowledge-category-block"
+                aria-labelledby="invited-book-chapter-heading"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
               >
-                <h2 className="knowledge-category-title">INVITED BOOK CHAPTER</h2>
+                <h2 id="invited-book-chapter-heading" className="knowledge-category-title">
+                  INVITED BOOK CHAPTER
+                </h2>
                 <ul className="knowledge-items-list">
                   {bookChapters.map((item, idx) => (
                     <motion.li
                       key={idx}
                       className="knowledge-item-card"
+                      itemScope
+                      itemType="https://schema.org/Chapter"
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.35 }}
                       whileHover={{ x: 6 }}
                     >
-                      <p className="knowledge-item-text">{item}</p>
+                      <meta itemProp="author" content="Dr. Chukwuma Onuoha" />
+                      <p className="knowledge-item-text" itemProp="name">
+                        {item}
+                      </p>
                     </motion.li>
                   ))}
                 </ul>
@@ -240,8 +277,14 @@ export default function Knowledge() {
           </AnimatePresence>
         </div>
 
-        {/* 5. Profile Section: Dr. Chukwuma Onuoha & chuks-pic.jpe */}
-        <section className="knowledge-profile-section">
+        {/* 5. Profile Section: Dr. Chukwuma Onuoha & chuks-pic.jpg */}
+        <section
+          id="author-profile"
+          className="knowledge-profile-section"
+          aria-labelledby="knowledge-profile-heading"
+          itemScope
+          itemType="https://schema.org/Person"
+        >
           <motion.div
             className="knowledge-profile-header"
             initial={{ opacity: 0, y: 20 }}
@@ -249,10 +292,14 @@ export default function Knowledge() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="knowledge-profile-name">
+            <h2
+              id="knowledge-profile-heading"
+              className="knowledge-profile-name"
+              itemProp="name"
+            >
               Chukwuma (Chuks) Onuoha (P. Eng, PhD, FICorr, MBA)
             </h2>
-            <p className="knowledge-profile-role">
+            <p className="knowledge-profile-role" itemProp="jobTitle">
               AMPP Certified Corrosion Engineering Specialist
             </p>
           </motion.div>
@@ -265,15 +312,17 @@ export default function Knowledge() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <img
-              src="/chuks-pic.jpe"
+              src="/chuks-pic.jpg"
               alt="Dr. Chukwuma (Chuks) Onuoha speaking at the AMPP conference podium"
               className="knowledge-profile-img"
+              itemProp="image"
               loading="lazy"
             />
           </motion.div>
 
           <motion.p
             className="knowledge-profile-bio"
+            itemProp="description"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -306,6 +355,7 @@ export default function Knowledge() {
             <a
               href="mailto:canchukscorrosioninc@gmail.com"
               className="knowledge-profile-contact-link"
+              itemProp="email"
             >
               Email: canchukscorrosioninc@gmail.com
             </a>

@@ -69,16 +69,28 @@ export default function Contact({ onNavigate }) {
           >
             <Home size={26} className="contact-col-icon" aria-hidden="true" />
             <h2 className="contact-col-title">Visit Our Office</h2>
-            <address
-              className="contact-col-text"
-              style={{ fontStyle: 'normal' }}
-              itemScope
-              itemType="https://schema.org/PostalAddress"
-            >
-              Address: <span itemProp="streetAddress">31, Wetheral Road</span>,{' '}
-              <span itemProp="addressLocality">Owerri</span>,{' '}
-              <span itemProp="addressRegion">Imo State</span>,{' '}
-              <span itemProp="addressCountry">Nigeria</span>.
+            <address className="contact-address-list">
+              <p
+                className="contact-col-text"
+                itemScope
+                itemType="https://schema.org/PostalAddress"
+              >
+                <span className="contact-address-label">Port Harcourt, Nigeria:</span>{' '}
+                <span itemProp="streetAddress">4, Gbalajam Road, Woji</span>,{' '}
+                <span itemProp="addressLocality">Port Harcourt</span>,{' '}
+                <span itemProp="addressCountry">Nigeria</span>.
+              </p>
+              <p
+                className="contact-col-text"
+                itemScope
+                itemType="https://schema.org/PostalAddress"
+              >
+                <span className="contact-address-label">Imo State, Nigeria:</span>{' '}
+                <span itemProp="streetAddress">31, Wetheral Road</span>,{' '}
+                <span itemProp="addressLocality">Owerri</span>,{' '}
+                <span itemProp="addressRegion">Imo State</span>,{' '}
+                <span itemProp="addressCountry">Nigeria</span>.
+              </p>
             </address>
           </motion.div>
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import SEO from './components/SEO'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -10,74 +11,86 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import './App.css'
 
-function App() {
-  const getInitialPage = () => {
-    const hash = window.location.hash.replace('#', '')
-    if (hash === 'about') return 'about'
-    if (hash === 'services') return 'services'
-    if (hash === 'partners') return 'partners'
-    if (hash === 'knowledge') return 'knowledge'
-    if (hash === 'contact') return 'contact'
-    if (hash === '404') return '404'
-    return 'home'
-  }
+const PAGE_TO_PATH = {
+  home: '/',
+  about: '/about',
+  services: '/services',
+  partners: '/partners',
+  knowledge: '/knowledge',
+  contact: '/contact',
+  404: '/404',
+}
 
-  const [currentPage, setCurrentPage] = useState(getInitialPage)
+function resolvePageFromLocation() {
+  const hash = window.location.hash.replace('#', '').toLowerCase()
+  if (
+    hash === 'about' ||
+    hash === 'services' ||
+    hash === 'partners' ||
+    hash === 'knowledge' ||
+    hash === 'contact' ||
+    hash === '404'
+  ) {
+    return hash
+  }
+  if (hash === 'home') return 'home'
+
+  const path = window.location.pathname.replace(/\/+$/, '').toLowerCase() || '/'
+  if (path === '/' || path === '/index.html') return 'home'
+  if (path === '/about') return 'about'
+  if (path === '/services') return 'services'
+  if (path === '/partners') return 'partners'
+  if (path === '/knowledge') return 'knowledge'
+  if (path === '/contact') return 'contact'
+  if (path === '/404') return '404'
+
+  if (window.location.protocol !== 'file:') {
+    return '404'
+  }
+  return 'home'
+}
+
+function App() {
+  const [currentPage, setCurrentPage] = useState(resolvePageFromLocation)
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '')
-      if (hash === 'about') setCurrentPage('about')
-      else if (hash === 'services') setCurrentPage('services')
-      else if (hash === 'partners') setCurrentPage('partners')
-      else if (hash === 'knowledge') setCurrentPage('knowledge')
-      else if (hash === 'contact') setCurrentPage('contact')
-      else if (hash === '404') setCurrentPage('404')
-      else setCurrentPage('home')
+    const syncRoute = () => {
+      setCurrentPage(resolvePageFromLocation())
     }
-    window.addEventListener('hashchange', handleHashChange)
-    return () => window.removeEventListener('hashchange', handleHashChange)
+    window.addEventListener('popstate', syncRoute)
+    window.addEventListener('hashchange', syncRoute)
+    return () => {
+      window.removeEventListener('popstate', syncRoute)
+      window.removeEventListener('hashchange', syncRoute)
+    }
   }, [])
 
   const handleNavigate = (page) => {
-    if (page === 'about') {
-      window.location.hash = 'about'
-      setCurrentPage('about')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else if (page === 'services') {
-      window.location.hash = 'services'
-      setCurrentPage('services')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else if (page === 'partners') {
-      window.location.hash = 'partners'
-      setCurrentPage('partners')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else if (page === 'knowledge') {
-      window.location.hash = 'knowledge'
-      setCurrentPage('knowledge')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else if (page === 'contact') {
-      window.location.hash = 'contact'
-      setCurrentPage('contact')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else if (page === '404') {
-      window.location.hash = '404'
-      setCurrentPage('404')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+    const targetPage = PAGE_TO_PATH[page] ? page : 'home'
+    const targetPath = PAGE_TO_PATH[targetPage]
+
+    if (window.location.protocol !== 'file:') {
+      if (window.location.pathname !== targetPath || window.location.hash) {
+        window.history.pushState({ page: targetPage }, '', targetPath)
+      }
     } else {
-      window.location.hash = ''
-      setCurrentPage('home')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.location.hash = targetPage === 'home' ? '' : targetPage
     }
+
+    setCurrentPage(targetPage)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
     <div className="app-layout">
+      {/* Dynamic Per-Page Meta Tags, Canonical URL, Open Graph, Twitter Card & JSON-LD */}
+      <SEO page={currentPage} />
+
       {/* Navbar with borderless design, thick pill button, and reduced logo */}
       <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
 
       {/* Pages */}
-      <main className="main-content">
+      <main className="main-content" id="main-content">
         {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
         {currentPage === 'about' && <About onNavigate={handleNavigate} />}
         {currentPage === 'services' && <Services onNavigate={handleNavigate} />}
